@@ -1,0 +1,166 @@
+debug: false
+########################################################
+### spring 相关配置
+########################################################
+spring:
+  profiles:
+    active: druid
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+  boot:
+    admin:
+      url: http://localhost:${server.port}
+  application:
+    name: aishanghua_app_api
+  mvc:
+    favicon:
+      enabled: true
+    static-path-pattern: /**
+  #上传大小限制
+  http:
+    multipart:
+      max-file-size: 100Mb
+      maxRequestSize: 100Mb
+  # thymeleaf 相关配置
+  thymeleaf:
+    cache: false
+  freemarker:
+    allow-request-override: false
+    allow-session-override: false
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: true
+    settings:
+      classic_compatible: true
+      default_encoding: UTF-8
+      template_update_delay: 0
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+  jackson:
+    mapper:
+      sort_properties_alphabetically: true
+    property-naming-strategy: LOWER_CAMEL_CASE
+    serialization:
+      indent_output: true
+
+  ########################################################
+  ### datasourcess
+  ########################################################
+  datasource:
+    url: jdbc:mysql://rm-8vb85d4e6q19l4wzqgo.mysql.zhangbei.rds.aliyuncs.com/kekou-test?characterEncoding=UTF-8&allowMultiQueries=true
+    username: kkkl_prod
+    password: kkkl_Prod!@#201754$%^&*()
+
+  ########################################################
+  ###redis
+  ########################################################
+  redis:
+    host: 39.99.187.158
+    password: kekoke_test2019
+    database: 3
+    port: 6379
+    timeout: 10000
+    maxTotal: 500
+    maxIdle: 500
+    maxWaitMillis: 2
+
+  #############定义日志输出色彩
+  output:
+    ansi:
+      enabled: DETECT
+
+  mail:
+    server: false
+    host: smtp.exmail.qq.com
+    username: system01@souyijie.com
+    password: 654321@abC
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  data:
+    mongodb:
+      host: dds-8vb79d182eabb5441917-pub.mongodb.zhangbei.rds.aliyuncs.com
+      port: 3717
+      database: kekou_test
+      username: kekou_test
+      password: kekou_teERFGHNM#￥%……st
+########################################################
+### web访问端口配置
+########################################################
+server:
+  context-path: /
+  port: 8084
+
+########################################################
+### mybatis配置
+########################################################
+mybatis:
+  mapper-locations: classpath:/mapping/*.xml,classpath:/mapping2/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    call-setters-on-nulls: true
+    return-instance-for-empty-row: true
+
+
+
+########################################################
+### logback 配置
+########################################################
+logging:
+  level: debug
+  config: classpath:config/logback.xml
+
+########################################################
+#####################其它配置###########################
+########################################################
+
+
+qn_ak: KLr9ulnp1lt18LXUgH-ScI5apWKQGAagPqfKqyPl
+qn_sk: -gy8Beq8Sk0x9zyqHaZARDX5ZbopU9RhGis0ba5W
+qn_bucket: txqb-dev
+domainOfBucket: txqb-dev.zjwlkj.shop
+expireInSeconds: -1
+# face++ 接口参数
+faceid:
+  app_key: _PqpvHkjXlHG15pfp_tVpKEvwsxvTNVa
+  app_secret: tidvUYSW9bB5jYivVT9Ck-leWwOQSOLZ
+  # 人脸比对接口地址
+  face_matching: https://api.megvii.com/faceid/v2/verify
+  #ocr_url: https://api.faceid.com/faceid/v1/ocridcard
+  ocr_url: https://api.megvii.com/faceid/v3/ocridcard
+  biz_token_url: https://api.megvii.com/faceid/v3/sdk/get_biz_token
+  verify_url: https://api.megvii.com/faceid/v3/sdk/verify
+
+aliyun:
+  accessKeyId: LTAI4FhnV7GYA49kVtbCYJHX
+  accessKeySecret: xGbeurGppkLdTCnyiXi5zzmEA6VHLp
+  biz: kkkl-realNameVerify
+  oss:
+    accessKeyId: LTAI4Ff9MZFquwWw2F2ovsun
+    accessKeySecret: XxSg1SgoWGX6U4hHyI19OakX1adE2G
+    bucketName: kkkl-dev
+    endpoint: oss-cn-zhangjiakou.aliyuncs.com
+    folder: picture/
+
+web:
+  upload-path: D:\diandianqianUpload\
+
+
+file:
+  hm:
+    auth:
+      pfx: D:\\huimin\\daxianghua.pfx
+      #pfx: /project/huimin/daxianghua.pfx
+
+swagger:
+  enable: true
